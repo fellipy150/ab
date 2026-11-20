@@ -8,7 +8,7 @@
   <link rel="icon" type="image/svg+xml" href="/ab/assets/autobook-ico-C8ol1dk0.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script type="module" crossorigin src="/ab/assets/main-DzyAigN1.js"></script>
+  <script type="module" crossorigin src="/ab/assets/main-DYetTdD6.js"></script>
   <link rel="modulepreload" crossorigin href="/ab/assets/tunnel-sync-BAU8sBSF.js">
   <link rel="stylesheet" crossorigin href="/ab/assets/tunnel-sync-vg6bp--E.css">
 </head>
@@ -179,6 +179,26 @@
           Endereço HTTPS público gerado pelo <code>cloudflared</code> para comunicar com o servidor TTS local.
         </p>
         <input type="text" id="tunnelUrlInput" class="ul-input" placeholder="https://<subdominio>.trycloudflare.com">
+      </div>
+
+      <div class="v-field" style="margin-top: 14px;">
+        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; user-select: none;">
+          <input type="checkbox" id="cfgDialogTags" checked style="width: 18px; height: 18px; accent-color: var(--gold);">
+          <span>Habilitar dialog tags dinâmicos (Qwen IA)</span>
+        </label>
+        <p id="cfgDialogTagsHint" style="font-size: 12px; color: var(--muted); margin: 4px 0 0 26px;">
+          Usa o modelo Qwen para enriquecer tags de diálogos contextuais.
+        </p>
+      </div>
+
+      <div class="v-field" style="margin-top: 14px;">
+        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; user-select: none;">
+          <input type="checkbox" id="cfgLimitBuffer" checked style="width: 18px; height: 18px; accent-color: var(--gold);">
+          <span>Limitar buffer de áudio (máx. 1 min na frente)</span>
+        </label>
+        <p style="font-size: 12px; color: var(--muted); margin: 4px 0 0 26px;">
+          Pausa o pré-carregamento do TTS se o buffer estiver mais de 60 segundos à frente da reprodução atual.
+        </p>
       </div>
 
       <div class="modal-actions">
