@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1220">
+  <title>Autobook — Leitor</title>
+  <link rel="icon" type="image/svg+xml" href="/ab-deploy/assets/autobook-ico-C8ol1dk0.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script type="module" crossorigin src="/ab-deploy/assets/ab-CXxWeIuG.js"></script>
+  <link rel="modulepreload" crossorigin href="/ab-deploy/assets/styles-B9t8NN-k.js">
+  <link rel="stylesheet" crossorigin href="/ab-deploy/assets/styles-Draxk3vP.css">
+</head>
+<body class="reader-page">
+
+<header class="topbar">
+  <a class="brand" href="/" title="Voltar ao início">
+    <span class="mark"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzQiIGhlaWdodD0iMzQiIHZpZXdCb3g9IjAgMCAzNCAzNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8IS0tIEZ1bmRvIGUgYm9yZGEgZXh0ZXJuYSAtLT4KICA8Y2lyY2xlIGN4PSIxNyIgY3k9IjE3IiByPSIxNi41IiBmaWxsPSIjMGExMTFkIiBzdHJva2U9IiNkNWIxN2EiIHN0cm9rZS13aWR0aD0iMSIgLz4KICAKICA8IS0tIEJvcmRhIGludGVybmEgLS0+CiAgPGNpcmNsZSBjeD0iMTciIGN5PSIxNyIgcj0iMTEiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyMTMsIDE3NywgMTIyLCAwLjMxKSIgc3Ryb2tlLXdpZHRoPSIxIiAvPgogIAogIDwhLS0gTGV0cmEgQSBjZW50cmFsaXphZGEgLS0+CiAgPHRleHQgeD0iMTciIHk9IjE4LjUiIGZpbGw9IiNkNWIxN2EiIGZvbnQtZmFtaWx5PSJzZXJpZiIgZm9udC1zaXplPSIyMnB4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIj4KICAgIEEKICA8L3RleHQ+Cjwvc3ZnPg==" alt="Autobook" width="34" height="34"></span>
+    <span><strong>AUTO<span>BOOK</span></strong></span>
+  </a>
+</header>
+
+<main class="layout layout-reader">
+  <section class="reader" id="reader" style="padding-bottom: 120px;">
+    <div id="loadingNovel" style="text-align: center; padding: 40px 20px; color: var(--gold, #d5b17a); font-size: 18px;">
+      Carregando novel...
+    </div>
+    <!-- Cabeçalho especial do capítulo -->
+    <header class="chapter-header" id="chapterHeader" style="display: none;">
+      <div class="chapter-header-top">
+        <span class="chapter-eyebrow" id="chapterEyebrow">Capítulo Atual</span>
+        <nav class="chapter-nav-buttons" id="chapterNavButtons" style="display: none;">
+          <a class="chapter-nav-btn" id="prevChapterBtn" href="#" title="Capítulo Anterior" style="display: none;">
+            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            <span class="nav-label">Anterior</span>
+          </a>
+          <a class="chapter-nav-btn" id="nextChapterBtn" href="#" title="Próximo Capítulo" style="display: none;">
+            <span class="nav-label">Próximo</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+        </nav>
+      </div>
+      <h1 class="chapter-title" id="chapterTitle"></h1>
+    </header>
+    <article class="story" id="story"></article>
+
+    <div class="reader-footer">
+      <span id="readStatus">Aguardando novel</span>
+      <nav class="chapter-nav-buttons" id="chapterNavButtonsBottom" style="display: none;">
+        <a class="chapter-nav-btn" id="prevChapterBtnBottom" href="#" title="Capítulo Anterior" style="display: none;">
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          <span class="nav-label">Anterior</span>
+        </a>
+        <a class="chapter-nav-btn" id="nextChapterBtnBottom" href="#" title="Próximo Capítulo" style="display: none;">
+          <span class="nav-label">Próximo</span>
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </a>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Painel lateral da última imagem da novel -->
+  <aside class="novel-image-sidebar" id="novelImageSidebar">
+    <div class="sidebar-image-container" id="sidebarImageContainer">
+      <div class="sidebar-placeholder" id="sidebarPlaceholder">
+        <span>Sem ilustrações</span>
+      </div>
+      <img id="activeNovelImage" class="active-novel-image" alt="Ilustração da Novel" style="display: none;" />
+    </div>
+    <div class="sidebar-caption" id="sidebarCaption"></div>
+  </aside>
+</main>
+
+<section class="player">
+  <div class="player-main">
+    <!-- Coluna da esquerda (empilhada: topo com info/wave/icone, embaixo com botões e seekbar) -->
+    <div class="player-left-col">
+      <div class="player-info-container">
+        <div class="player-avatar-wrapper">
+          <img id="charAvatar" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzQiIGhlaWdodD0iMzQiIHZpZXdCb3g9IjAgMCAzNCAzNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8IS0tIEZ1bmRvIGUgYm9yZGEgZXh0ZXJuYSAtLT4KICA8Y2lyY2xlIGN4PSIxNyIgY3k9IjE3IiByPSIxNi41IiBmaWxsPSIjMGExMTFkIiBzdHJva2U9IiNkNWIxN2EiIHN0cm9rZS13aWR0aD0iMSIgLz4KICAKICA8IS0tIEJvcmRhIGludGVybmEgLS0+CiAgPGNpcmNsZSBjeD0iMTciIGN5PSIxNyIgcj0iMTEiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyMTMsIDE3NywgMTIyLCAwLjMxKSIgc3Ryb2tlLXdpZHRoPSIxIiAvPgogIAogIDwhLS0gTGV0cmEgQSBjZW50cmFsaXphZGEgLS0+CiAgPHRleHQgeD0iMTciIHk9IjE4LjUiIGZpbGw9IiNkNWIxN2EiIGZvbnQtZmFtaWx5PSJzZXJpZiIgZm9udC1zaXplPSIyMnB4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIj4KICAgIEEKICA8L3RleHQ+Cjwvc3ZnPg==" class="char-avatar" />
+          <canvas id="waveformCanvas" class="ab-waveform-canvas"></canvas>
+        </div>
+        <div class="player-text">
+          <h4 id="charNameUI">Autobook</h4>
+          <p id="trackStatus">Pronto para reproduzir</p>
+        </div>
+      </div>
+      <div class="controls">
+        <div class="buttons">
+          <button class="icon-btn" id="backBtn">↺ 15s</button>
+          <button class="play" id="playBtn">▶</button>
+          <button class="icon-btn" id="forwardBtn">15s ↻</button>
+        </div>
+        <div class="seek">
+          <span id="currentTime">00:00</span>
+          <input type="range" value="0">
+          <span>00:00</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Coluna da direita: imagem ativa da cena -->
+    <div class="player-novel-thumb" id="playerNovelThumb" title="Última ilustração da novel">
+      <img id="playerNovelImg" class="player-novel-img" alt="Ilustração ativa" style="display: none;" />
+    </div>
+
+    <div class="player-options" style="display: none;"></div>
+  </div>
+</section>
+
+<div class="notice" id="notice"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+<script>
+  (function() {
+    const isMobile = window.matchMedia('(max-width: 768px)').matches || 
+      (window.screen && (window.screen.width < 768 || window.screen.height > window.screen.width && window.screen.width < 1024)) ||
+      /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+    if (isMobile && window.eruda) {
+      eruda.init();
+    }
+  })();
+</script>
+
+</body>
+</html>

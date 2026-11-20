@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1220">
+  <title>Autobook</title>
+  <link rel="icon" type="image/svg+xml" href="/ab-deploy/assets/autobook-ico-C8ol1dk0.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script type="module" crossorigin src="/ab-deploy/assets/main-CDb6Zwao.js"></script>
+  <link rel="modulepreload" crossorigin href="/ab-deploy/assets/styles-B9t8NN-k.js">
+  <link rel="stylesheet" crossorigin href="/ab-deploy/assets/styles-Draxk3vP.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="#" style="margin: 0 auto;">
+    <span class="mark"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzQiIGhlaWdodD0iMzQiIHZpZXdCb3g9IjAgMCAzNCAzNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8IS0tIEZ1bmRvIGUgYm9yZGEgZXh0ZXJuYSAtLT4KICA8Y2lyY2xlIGN4PSIxNyIgY3k9IjE3IiByPSIxNi41IiBmaWxsPSIjMGExMTFkIiBzdHJva2U9IiNkNWIxN2EiIHN0cm9rZS13aWR0aD0iMSIgLz4KICAKICA8IS0tIEJvcmRhIGludGVybmEgLS0+CiAgPGNpcmNsZSBjeD0iMTciIGN5PSIxNyIgcj0iMTEiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyMTMsIDE3NywgMTIyLCAwLjMxKSIgc3Ryb2tlLXdpZHRoPSIxIiAvPgogIAogIDwhLS0gTGV0cmEgQSBjZW50cmFsaXphZGEgLS0+CiAgPHRleHQgeD0iMTciIHk9IjE4LjUiIGZpbGw9IiNkNWIxN2EiIGZvbnQtZmFtaWx5PSJzZXJpZiIgZm9udC1zaXplPSIyMnB4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIj4KICAgIEEKICA8L3RleHQ+Cjwvc3ZnPg==" alt="Autobook" width="34" height="34"></span>
+    <span><strong>AUTO<span>BOOK</span></strong></span>
+  </a>
+</header>
+
+<main class="layout">
+  <section class="reader" id="reader">
+    <div id="setupContainer"></div>
+  </section>
+
+  <aside class="sidebar" id="sidebar">
+    <section class="panel">
+      <div class="panel-heading">
+        <span class="panel-icon">
+          <img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='currentColor'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'%3e%3cpath%20d='M12%203v18M8%207c0-2%201.8-3.5%204-3.5S16%205%2016%207s-1.8%203-4%203-4%201.5-4%203.5%201.8%203.5%204%203.5%204-1.5%204-3.5'/%3e%3c/svg%3e" alt="Voice Lab Icon">
+        </span>
+        <div>
+          <h2>Voice Lab</h2>
+        </div>
+      </div>
+      <p>Crie ou ajuste vozes de personagens escolhendo o provedor, selecionando e ajustando tom e velocidade.</p>
+      <button class="primary" id="openVoiceLab">Abrir laboratório</button>
+    </section>
+  </aside>
+</main>
+
+<div class="notice" id="notice"></div>
+
+<!-- Voice Lab Modal -->
+<div class="modal-bg" id="voiceModal">
+  <div class="modal">
+    <div class="modal-top">
+      <div>
+        <div class="small-label">Autobook · Voice Lab</div>
+        <h2>Configurar Perfil de Voz</h2>
+      </div>
+      <button class="close" id="closeVoiceLab">✕</button>
+    </div>
+
+    <form id="voiceForm">
+      <div class="v-field">
+        <label>Carregar Perfil Existente (Opcional)</label>
+        <select id="selectExistingProfile" class="ul-input">
+          <option value="">-- Criar Novo / Personalizado --</option>
+        </select>
+      </div>
+
+      <div class="v-field">
+        <label>Nome do Personagem / Perfil</label>
+        <input type="text" id="modalCharName" name="charName" class="ul-input" placeholder="Ex: Narrador, Protagonista, Herói">
+      </div>
+
+      <div class="v-grid-2">
+        <div class="v-field" style="margin: 0;">
+          <label>Motor de Voz</label>
+          <select id="modalEngine" name="engine" class="ul-input"></select>
+        </div>
+        <div class="v-field" style="margin: 0;">
+          <label>Voz-base</label>
+          <select id="modalVoice" name="voice" class="ul-input"></select>
+        </div>
+      </div>
+
+      <div class="v-grid-2" style="margin-top: 12px;">
+        <div class="v-field" style="margin: 0;">
+          <label>Tom (Pitch): <span id="pitchVal">+0Hz</span></label>
+          <div class="slider-container">
+            <span>-20Hz</span>
+            <input type="range" id="modalPitchRange" min="-20" max="20" value="0" step="1">
+            <span>+20Hz</span>
+          </div>
+          <input type="hidden" id="modalPitch" name="pitch" value="+0Hz">
+        </div>
+        <div class="v-field" style="margin: 0;">
+          <label>Velocidade: <span id="rateVal">+0%</span></label>
+          <div class="slider-container">
+            <span>-50%</span>
+            <input type="range" id="modalRateRange" min="-50" max="50" value="0" step="5">
+            <span>+50%</span>
+          </div>
+          <input type="hidden" id="modalRate" name="rate" value="+0%">
+        </div>
+      </div>
+
+      <div class="v-field" style="margin-top: 12px;">
+        <label>Volume: <span id="volumeVal">100%</span></label>
+        <div class="slider-container">
+          <span>0%</span>
+          <input type="range" id="modalVolumeRange" min="0" max="300" step="10" value="100">
+          <span>300%</span>
+        </div>
+        <input type="hidden" id="modalVolume" name="volume" value="100%">
+      </div>
+
+      <div class="v-field" style="margin-top: 12px;">
+        <label>Texto para Teste</label>
+        <textarea id="sampleText" class="ul-input" rows="2">O som da chuva contra a vidraça era o único ritmo naquela noite silenciosa.</textarea>
+      </div>
+
+      <div class="modal-actions">
+        <button type="submit" class="primary" id="generateBtn">Gerar Áudio de Teste</button>
+        <button type="button" id="saveProfileBtn" class="btn-secondary-action">Salvar Perfil</button>
+      </div>
+
+      <div class="preview-result" id="previewResult"></div>
+    </form>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+<script>
+  (function() {
+    const isMobile = window.matchMedia('(max-width: 768px)').matches || 
+      (window.screen && (window.screen.width < 768 || window.screen.height > window.screen.width && window.screen.width < 1024)) ||
+      /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+    if (isMobile && window.eruda) {
+      eruda.init();
+    }
+  })();
+</script>
+
+</body>
+</html>

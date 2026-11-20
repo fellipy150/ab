@@ -1,0 +1,12 @@
+<svg width="34" height="34" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fundo e borda externa -->
+  <circle cx="17" cy="17" r="16.5" fill="#0a111d" stroke="#d5b17a" stroke-width="1" />
+  
+  <!-- Borda interna -->
+  <circle cx="17" cy="17" r="11" fill="none" stroke="rgba(213, 177, 122, 0.31)" stroke-width="1" />
+  
+  <!-- Letra A centralizada -->
+  <text x="17" y="18.5" fill="#d5b17a" font-family="serif" font-size="22px" text-anchor="middle" dominant-baseline="middle">
+    A
+  </text>
+</svg>
