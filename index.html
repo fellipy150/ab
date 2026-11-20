@@ -8,17 +8,25 @@
   <link rel="icon" type="image/svg+xml" href="/ab/assets/autobook-ico-C8ol1dk0.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script type="module" crossorigin src="/ab/assets/main-CDb6Zwao.js"></script>
-  <link rel="modulepreload" crossorigin href="/ab/assets/styles-B9t8NN-k.js">
-  <link rel="stylesheet" crossorigin href="/ab/assets/styles-Draxk3vP.css">
+  <script type="module" crossorigin src="/ab/assets/main-B205uQFP.js"></script>
+  <link rel="modulepreload" crossorigin href="/ab/assets/styles-CIoNhZhR.js">
+  <link rel="stylesheet" crossorigin href="/ab/assets/styles-vg6bp--E.css">
 </head>
 <body>
 
 <header class="topbar">
+  <div style="width: 40px;"></div>
   <a class="brand" href="#" style="margin: 0 auto;">
     <span class="mark"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzQiIGhlaWdodD0iMzQiIHZpZXdCb3g9IjAgMCAzNCAzNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8IS0tIEZ1bmRvIGUgYm9yZGEgZXh0ZXJuYSAtLT4KICA8Y2lyY2xlIGN4PSIxNyIgY3k9IjE3IiByPSIxNi41IiBmaWxsPSIjMGExMTFkIiBzdHJva2U9IiNkNWIxN2EiIHN0cm9rZS13aWR0aD0iMSIgLz4KICAKICA8IS0tIEJvcmRhIGludGVybmEgLS0+CiAgPGNpcmNsZSBjeD0iMTciIGN5PSIxNyIgcj0iMTEiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyMTMsIDE3NywgMTIyLCAwLjMxKSIgc3Ryb2tlLXdpZHRoPSIxIiAvPgogIAogIDwhLS0gTGV0cmEgQSBjZW50cmFsaXphZGEgLS0+CiAgPHRleHQgeD0iMTciIHk9IjE4LjUiIGZpbGw9IiNkNWIxN2EiIGZvbnQtZmFtaWx5PSJzZXJpZiIgZm9udC1zaXplPSIyMnB4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIj4KICAgIEEKICA8L3RleHQ+Cjwvc3ZnPg==" alt="Autobook" width="34" height="34"></span>
     <span><strong>AUTO<span>BOOK</span></strong></span>
   </a>
+  <button class="menu-btn" id="openMenuBtn" aria-label="Abrir menu" title="Menu">
+    <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
 </header>
 
 <main class="layout">
@@ -121,6 +129,61 @@
       </div>
 
       <div class="preview-result" id="previewResult"></div>
+    </form>
+  </div>
+</div>
+
+<!-- Drawer / Menu Lateral -->
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<aside class="drawer" id="sideDrawer" aria-label="Menu Lateral">
+  <div class="drawer-header">
+    <h3>Menu</h3>
+    <button class="close" id="closeDrawerBtn" aria-label="Fechar menu">✕</button>
+  </div>
+  <nav class="drawer-nav">
+    <button class="drawer-item" id="drawerVoiceLabBtn">
+      <span class="drawer-icon">
+        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3v18M8 7c0-2 1.8-3.5 4-3.5S16 5 16 7s-1.8 3-4 3-4 1.5-4 3.5 1.8 3.5 4 3.5 4-1.5 4-3.5"/>
+        </svg>
+      </span>
+      <span>Voice Lab</span>
+    </button>
+    <button class="drawer-item" id="drawerConfigBtn">
+      <span class="drawer-icon">
+        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+        </svg>
+      </span>
+      <span>Configurações</span>
+    </button>
+  </nav>
+</aside>
+
+<!-- Modal de Configurações -->
+<div class="modal-bg" id="configModal">
+  <div class="modal">
+    <div class="modal-top">
+      <div>
+        <div class="small-label">Autobook · Sistema</div>
+        <h2>Configurações</h2>
+      </div>
+      <button class="close" id="closeConfigModal">✕</button>
+    </div>
+
+    <form id="configForm">
+      <div class="v-field">
+        <label for="tunnelUrlInput">URL Pública do Túnel (Cloudflare / Remoto)</label>
+        <p style="font-size: 13px; color: var(--muted); margin: 0 0 8px 0;">
+          Endereço HTTPS público gerado pelo <code>cloudflared</code> para comunicar com o servidor TTS local.
+        </p>
+        <input type="text" id="tunnelUrlInput" class="ul-input" placeholder="https://<subdominio>.trycloudflare.com">
+      </div>
+
+      <div class="modal-actions">
+        <button type="submit" class="primary" id="saveConfigBtn">Salvar Configurações</button>
+      </div>
     </form>
   </div>
 </div>
