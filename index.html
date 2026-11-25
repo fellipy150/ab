@@ -8,9 +8,9 @@
   <link rel="icon" type="image/svg+xml" href="/ab/assets/autobook-ico-C8ol1dk0.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script type="module" crossorigin src="/ab/assets/main-uS2N7uvi.js"></script>
-  <link rel="modulepreload" crossorigin href="/ab/assets/tunnel-sync-CcKTr0ju.js">
-  <link rel="stylesheet" crossorigin href="/ab/assets/tunnel-sync-DVRBHddU.css">
+  <script type="module" crossorigin src="/ab/assets/main-Cy89pf_X.js"></script>
+  <link rel="modulepreload" crossorigin href="/ab/assets/tunnel-sync-C9jfKK1M.js">
+  <link rel="stylesheet" crossorigin href="/ab/assets/tunnel-sync-Bj1oEV6-.css">
 </head>
 <body>
 
@@ -186,6 +186,16 @@
         </p>
       </div>
 
+      <div class="v-field" style="margin-top: 14px;">
+        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; user-select: none;">
+          <input type="checkbox" id="cfgShowEruda" style="width: 18px; height: 18px; accent-color: var(--gold);">
+          <span>Exibir Eruda (Console Dev)</span>
+        </label>
+        <p style="font-size: 12px; color: var(--muted); margin: 4px 0 0 26px;">
+          Exibe o console de desenvolvedor móvel/flutuante (Eruda) na tela.
+        </p>
+      </div>
+
       <div class="modal-actions">
         <button type="submit" class="primary" id="saveConfigBtn">Salvar Configurações</button>
       </div>
@@ -196,10 +206,7 @@
 <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
 <script>
   (function() {
-    const isMobile = window.matchMedia('(max-width: 768px)').matches || 
-      (window.screen && (window.screen.width < 768 || window.screen.height > window.screen.width && window.screen.width < 1024)) ||
-      /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
-    if (isMobile && window.eruda) {
+    if (localStorage.getItem('ab_show_eruda') === 'true' && window.eruda) {
       eruda.init();
     }
   })();
